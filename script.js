@@ -269,6 +269,9 @@ document.getElementById("btnAlta").addEventListener("click", function (event) {
         } else if (anoFab <= 1885) {
             alert(`Año de fabricacion debe ser mayor a 1885`);
             return;
+        } else if (altMax === 0) {
+            alert(`Altura debe ser mayor 0`);
+            return;
         }
         let nuevoAereo = new Aereo(idUnico, modelo, anoFab, velMax, altMax, autonomia);
         vehiculosDatos.push(nuevoAereo);
@@ -280,8 +283,6 @@ document.getElementById("btnAlta").addEventListener("click", function (event) {
         } else if (anoFab <= 1885) {
             alert(`Año de fabricacion debe ser mayor a 1885`);
             return;
-        } else if (cantPue < 0) {
-            alert(`Puertas debe ser 0 o mayor`);
         }
         let nuevoTerrestre = new Terrestre(idUnico, modelo, anoFab, velMax, cantPue, cantRue);
         vehiculosDatos.push(nuevoTerrestre);
@@ -323,6 +324,9 @@ document.getElementById("btnModificar").addEventListener("click", function (even
             } else if (anoFab <= 1885) {
                 alert(`Año de fabricacion debe ser mayor a 1885`);
                 return;
+            } else if (altMax === 0) {
+                alert(`Altura debe ser mayor 0`);
+                return;
             }
             vehiculosDatos[index] = new Aereo(id, modelo, anoFab, velMax, altMax, autonomia);
         } else if (tipo === 'terrestre') {
@@ -359,7 +363,7 @@ document.getElementById("btnBaja").addEventListener("click", function (event) {
     let newVehiculosDatos = vehiculosDatos.filter(vehiAux => vehiAux.id !== id);
     if (newVehiculosDatos.length < vehiculosDatos.length) {
         vehiculosDatos = newVehiculosDatos;
-        alert('Usuario eliminado correctamente');
+        alert('Vehiculo eliminado correctamente');
         mostrarVehiculos();
         formDatos.style.display = "block";
         formAbm.style.display = "none";
@@ -389,7 +393,7 @@ function manejarForms() {
     let tabBody = document.querySelector('#vehiculoTabla tbody');
     let prom = document.getElementById("promedioVelocidad");
     let txtId = document.getElementById('id');
-    let txtModelo = document.getElementById('nombre');
+    let txtModelo = document.getElementById('modelo');
     let txtAnoFab = document.getElementById('anoFab');
     let txtVelMax = document.getElementById('velMax');
     let txtAltMax = document.getElementById('altMax');
