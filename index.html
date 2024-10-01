@@ -1,11 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Primer Parcial 2024</title>
+    <style>
+        .form-container {
+            border: 3px solid black;
+            padding: 20px;
+            border-radius: 4px;
+            max-width: 700px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+            background-color: antiquewhite;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        h1 {
+            font-size: 16px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        th,
+        td {
+            border: 4px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #eec2c2;
+        }
+
+        .checkbox-container {
+            flex-wrap: wrap;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: left;
+        }
+
+        .checkbox-container label {
+            margin-right: 20px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .alternative-h1 {
+
+            margin: 8%;
+            margin-left: 0%;
+            margin-top: 5%;
+            font-size: 38px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div id="formDatos" class="form-container">
+        <form>
+            <h1>Form Datos</h1>
+            <label for="filtro">Filtrar Por:</label>
+            <select id="filtro" name="filtro">
+                <option value="todos" selected>Todos</option>
+                <option value="aereo">Aereo</option>
+                <option value="terrestre">Terrestre</option>
+            </select>
+
+            <br><br>
+
+
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="idChk" name="columnas" value="id" checked>
+                <label for="idChk">id</label>
+
+                <input type="checkbox" id="modeloChk" name="columnas" value="modelo" checked>
+                <label for="modeloChk">modelo</label>
+
+                <input type="checkbox" id="anoFabChk" name="columnas" value="anoFab" checked>
+                <label for="anoFabChk">año fab</label>
+
+                <input type="checkbox" id="velMaxChk" name="columnas" value="velMax" checked>
+                <label for="velMaxChk">vel max</label>
+
+                <input type="checkbox" id="altMaxChk" name="columnas" value="altMax" checked>
+                <label for="altMaxChk">alt max</label>
+
+                <input type="checkbox" id="autonomiaChk" name="columnas" value="autonomia" checked>
+                <label for="autonomiaChk">autonomia</label>
+
+                <input type="checkbox" id="cantPueChk" name="columnas" value="cantPue" checked>
+                <label for="cantPueChk">cant pue</label>
+
+                <input type="checkbox" id="cantRueChk" name="columnas" value="cantRue" checked>
+                <label for="cantRueChk">cant rue</label>
+            </div>
+
+            <br>
+
+            <label for="promedioVelocidad">Promedio Velocidad Maxima:</label>
+            <input type="number" id="promedioVelocidad" name="promedioVelocidad" disabled>
+            <input type="button" id="botonCalcular" value="Calcular">
+
+            <br><br>
+
+            <table id="vehiculoTabla">
+                <thead>
+                    <tr>
+                        <th id="th-id">ID</th>
+                        <th id="th-modelo">Modelo</th>
+                        <th id="th-anoFab">Año Fabrica.</th>
+                        <th id="th-velMax">Velocidad Maxima</th>
+                        <th id="th-altMax">Altura Maxima</th>
+                        <th id="th-autonomia">Autonomia</th>
+                        <th id="th-cantPue">Cantidad Puertas</th>
+                        <th id="th-cantRue">Cantidad Ruedas</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <div class="button-container">
+                <input type="button" id="btnAgregar" value="Agregar">
+            </div>
+        </form>
+    </div>
+
+    <div id="formAbm" class="form-container hidden">
+        <form>
+
+            <h1 class="alternative-h1">Formulario ABM</h1>
+
+            <label for="id">ID:</label>
+            <input type="number" id="id" name="id" disabled>
+            <br><br>
+
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" name="tipo">
+                <option value="aereo">Aereo</option>
+                <option value="terrestre">Terrestre</option>
+            </select>
+            <br><br>
+
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo">
+            <br><br>
+
+            <label for="anoFab">Año Fabricacion:</label>
+            <input type="number" id="anoFab" name="anoFab">
+            <br><br>
+
+            <label for="velMax">Velocidad Maxima:</label>
+            <input type="number" id="velMax" name="velMax">
+            <br><br>
+
+            <label for="altMax">Altura Maxima:</label>
+            <input type="number" id="altMax" name="altMax">
+            <br><br>
+
+            <label for="autonomia">Autonomia:</label>
+            <input type="number" id="autonomia" name="autonomia">
+            <br><br>
+
+            <label for="cantPue">Cantidad Puertas:</label>
+            <input type="number" id="cantPue" name="cantPue">
+            <br><br>
+
+            <label for="cantRue">Cantidad Ruedas:</label>
+            <input type="number" id="cantRue" name="cantRue">
+            <br><br>
+
+            <div class="button-container">
+                <button id="btnAlta" class="hidden">Agregar</button>
+                <button id="btnModificar" class="hidden">Modificar</button>
+                <button id="btnBaja" class="hidden">Eliminar</button>
+                <button id="btnCancelar">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
 </body>
+
+<script type="module" src="script.js"></script>
+
 </html>
